@@ -1,5 +1,7 @@
 ﻿@page "/counter"
 
+@inject IJSRuntime JSRuntime
+
 <h1>Counter</h1>
 
 <p>Current count: @currentCount</p>
@@ -15,8 +17,13 @@
         currentCount++;
     }
 
-    private void PrintPDF()
+    private async Task PrintPDF()
     {
+        var res = await JSRuntime.InvokeAsync<bool>("confirm", "Are you sure?");
+        if (res == false) return;
 
+        await JSRuntime.InvokeVoidAsync(
+          "downloadFromUrl",
+          new { Url = "api/pdf", FileName = "test11.pdf" });
     }
 }

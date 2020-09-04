@@ -20,6 +20,10 @@
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="DinkToPdf" Version="1.0.8" />
+		<PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.0.2">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 		<PackageReference Include="NETStandard.Library" Version="2.0.3" />
 	</ItemGroup>
 </Project>
